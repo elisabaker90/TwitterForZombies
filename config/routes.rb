@@ -34,6 +34,7 @@ TwitterForZombies::Application.routes.draw do
   resources :tweet
   resources :zombie
   resources :sessions
+  root :to => "sessions#index"
 
   # Sample resource route with more complex sub-resources
   #   resources :products do

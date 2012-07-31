@@ -2,7 +2,7 @@ class CreateTweets < ActiveRecord::Migration
   def change
     create_table :tweets do |t|
       t.string :status
-      t.string :zombie_id
+      t.integer :zombie_id
 
       t.timestamps
     end
