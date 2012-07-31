@@ -1,11 +1,15 @@
 <%= form_for @zombie, :url => {:action => :create} do |f| %>
+	
+	<% if session[:zombie].nil? %>
+		Name: <br />
+		<%= f.text_field :name %> <br />
+		Graveyard: <br />
+		<%= f.text_field :graveyard %> <br />
 
-	Name: <br />
-	<%= f.text_field :name %> <br />
-	Graveyard: <br />
-	<%= f.text_field :graveyard %> <br />
-
-	<%= f.submit 'Submit Zombie' %>
+		<%= f.submit 'Submit Zombie' %>
+	<% else %>
+		You cannot create a new Zombie if you are currently logged in.
+	<% end %>
 
 
 <% end %>

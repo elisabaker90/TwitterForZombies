@@ -12,7 +12,8 @@ class ZombieController < ApplicationController
   end
 
   def create
-  	Zombie.create(params[:zombie])
+  	zombie = Zombie.create(params[:zombie])
+    session[:zombie] = zombie
   	redirect_to zombie_index_path
   end
 end
