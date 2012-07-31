@@ -1,0 +1,8 @@
+Sign In! <br /> <br />
+<%= form_for(:session, url: sessions_path) do |f| %>
+	Zombie Name: <br />
+	<%= f.text_field :name %>
+	<%= f.submit "Log In" %>
+<% end %>
+<br />
+New zombie? <%= link_to "Sign up now!", new_zombie_path %>
