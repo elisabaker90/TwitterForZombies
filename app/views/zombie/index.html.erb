@@ -1,33 +1,31 @@
-Number of Zombies = <%= @zombies.count %> <br />
+<div class="margin_offset">
+	Number of Zombies = <%= @zombies.count %> <br />
 
-<table border="1">
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Graveyard</th>
-<th>Most Recent Tweet</th>
-<th>Number of Tweets</th>
-<th>Created At</th>
-</tr>
-
-<% @zombies.each do |zombie| %>
+	<table border="1">
 	<tr>
-	<td><%= link_to zombie.id, zombie %></td>
-	<td><%= zombie.name %></td>
-	<td><%= zombie.graveyard %></td>
-	<% if zombie.tweets.count > 0 %>
-		<td><%= zombie.tweets.last.status %></td>
-	<% else %>	
-		<td><%= ' ' %></td>
-	<% end %>
-	<td><%= zombie.tweets.count %></td>
-	<td><%= zombie.created_at %></td>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Graveyard</th>
+	<th>Most Recent Tweet</th>
+	<th>Number of Tweets</th>
+	<th>Created At</th>
 	</tr>
-<% end %>
 
-</table>
+	<% @zombies.each do |zombie| %>
+		<tr>
+		<td><%= link_to zombie.id, zombie %></td>
+		<td><%= zombie.name %></td>
+		<td><%= zombie.graveyard %></td>
+		<% if zombie.tweets.count > 0 %>
+			<td><%= zombie.tweets.last.status %></td>
+		<% else %>	
+			<td><%= ' ' %></td>
+		<% end %>
+		<td><%= zombie.tweets.count %></td>
+		<td><%= zombie.created_at %></td>
+		</tr>
+	<% end %>
 
-<%= link_to 'New Zombie', new_zombie_path %>
-<%= link_to 'New Tweet', new_tweet_path %>
-<%= link_to 'All Zombies', zombie_index_path %>
-<%= link_to 'All Tweets', tweet_index_path %>
+	</table>
+
+</div>

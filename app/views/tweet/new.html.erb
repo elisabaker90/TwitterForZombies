@@ -1,5 +1,6 @@
-<%= form_for @tweet, :url => {:action => :create} do |f| %>
 
+<%= form_for @tweet, :url => {:action => :create} do |f| %>
+	<div class="margin_offset">
 	
 	<% if session[:zombie].nil? %>
 		You must be logged in to post a tweet! <%= link_to "Log In", sessions_path %>
@@ -12,10 +13,6 @@
 		<%= f.submit 'Submit Tweet' %>
 	<% end %>
 
-
+	</div>
 <% end %>
 
-<%= link_to 'New Zombie', new_zombie_path %>
-<%= link_to 'New Tweet', new_tweet_path %>
-<%= link_to 'All Zombies', zombie_index_path %>
-<%= link_to 'All Tweets', tweet_index_path %>

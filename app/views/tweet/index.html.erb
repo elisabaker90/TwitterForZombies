@@ -1,32 +1,31 @@
-Number of Tweets = <%= @tweets.count %> <br />
+<div class="margin_offset">
 
-<table border="1">
-<tr>
-<th>ID</th>
-<th>Status</th>
-<th>Zombie Name</th>
-<th>zombie ID</th>
-<th>Created At</th>
+	Number of Tweets = <%= @tweets.count %> <br />
 
-</tr>
-
-<% @tweets.each do |tweet| %>
+	<table border="1">
 	<tr>
-	<td><%= link_to tweet.id, tweet %></td>
-	<td><%= tweet.status %></td>
-	<% if tweet.zombie !nil %>
-		<td><%= tweet.zombie.name %></td>
-	<% else %>
-		<td><%= ' ' %></td>
-	<% end %>
-	<td><%= link_to tweet.zombie_id, tweet.zombie %></td>
-	<td><%= tweet.created_at %></td>
+	<th>ID</th>
+	<th>Status</th>
+	<th>Zombie Name</th>
+	<th>zombie ID</th>
+	<th>Created At</th>
+
 	</tr>
-<% end %>
 
-</table>
+	<% @tweets.each do |tweet| %>
+		<tr>
+		<td><%= link_to tweet.id, tweet %></td>
+		<td><%= tweet.status %></td>
+		<% if tweet.zombie !nil %>
+			<td><%= tweet.zombie.name %></td>
+		<% else %>
+			<td><%= ' ' %></td>
+		<% end %>
+		<td><%= link_to tweet.zombie_id, tweet.zombie %></td>
+		<td><%= tweet.created_at %></td>
+		</tr>
+	<% end %>
 
-<%= link_to 'New Zombie', new_zombie_path %>
-<%= link_to 'New Tweet', new_tweet_path %>
-<%= link_to 'All Zombies', zombie_index_path %>
-<%= link_to 'All Tweets', tweet_index_path %>
+	</table>
+
+</div>

@@ -1,4 +1,6 @@
+
 <%= form_for @zombie, :url => {:action => :create} do |f| %>
+<div class="margin_offset">
 	
 	<% if session[:zombie].nil? %>
 		Name: <br />
@@ -11,10 +13,7 @@
 		You cannot create a new Zombie if you are currently logged in.
 	<% end %>
 
+</div>
 
 <% end %>
 
-<%= link_to 'New Zombie', new_zombie_path %>
-<%= link_to 'New Tweet', new_tweet_path %>
-<%= link_to 'All Zombies', zombie_index_path %>
-<%= link_to 'All Tweets', tweet_index_path %>

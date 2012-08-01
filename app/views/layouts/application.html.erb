@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 
+
+
 <html>
 
 
 <head>
   <title>TwitterForZombies</title>
-  <%= stylesheet_link_tag    "bootstrap.min", :media => "all" %>
-  <%= javascript_include_tag "bootstrap.min" %>
+  <%= javascript_include_tag "jquery-1.7.2.min" %>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag    "zombie", :media => "all" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= javascript_include_tag "bootstrap-dropdown" %>
+   
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-	<% if session[:zombie].nil? %>
-		You are not currently signed in. 
-		<br /><br />
-	<% else %>
-		You are currently signed in as <%= link_to session[:zombie].name, session[:zombie] %>
-		<br /><br />
-	<% end %>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+	    <div class="container">
+	    	<div class="pull-right">
+				<% if session[:zombie].nil? %>
+					<button class = "btn"><%= link_to "Log In!", sessions_path %></button>
+					<%= link_to "Sign up!", new_zombie_path %>
+				<% else %>
+					<div class="btn-group span2">
+						<button class="btn"><%= link_to session[:zombie].name, session[:zombie] %></button>
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+						  <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><%= link_to 'Home', session[:zombie] %></li>
+						    <li><%= link_to 'New Tweet', new_tweet_path %></li>
+						    <li><%= link_to 'Edit Account' %></li>
+						    <li class="divider"></li>
+						    <li><%= link_to 'Log Out!', new_session_path%></li>
+						</ul>
+					</div>
+				<% end %>
+			</div>
+			<%= link_to 'All Zombies', zombie_index_path %>
+			<%= link_to 'All Tweets', tweet_index_path %>
+		</div>
+	</div>
+</div>
 
 
 	
 
 <%= yield %>
 
-	<br /><br />
+<!-- 	<br /><br />
 
 	<% if session[:zombie].nil?%>
-		<%= link_to "Log In!", sessions_path %>
+		<button class = "btn"><%= link_to "Log In!", sessions_path %></button>
 	<% else %>
-		<%= link_to "Log Out!", new_session_path%>
-	<% end %>
+		<button class = "btn"><%= link_to "Log Out!", new_session_path%></button>
+	<% end %> -->
 
 </body>
+<script type = "text/javascript">
+	$('.dropdown-toggle').dropdown();
+</script>
 </html>
-
-<br />
-<br />
-<br />
 
 
