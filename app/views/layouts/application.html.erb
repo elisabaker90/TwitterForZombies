@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 
 <html>
-<% if session[:zombie].nil? %>
-	You are not currently signed in. 
-	<br /><br />
-<% else %>
-	You are currently signed in as <%= link_to session[:zombie].name, session[:zombie] %>
-	<br /><br />
-<% end %>
+
 
 <head>
   <title>TwitterForZombies</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= javascript_include_tag "bootstrap" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+	<% if session[:zombie].nil? %>
+		You are not currently signed in. 
+		<br /><br />
+	<% else %>
+		You are currently signed in as <%= link_to session[:zombie].name, session[:zombie] %>
+		<br /><br />
+	<% end %>
+
+
+	
+
 <%= yield %>
+
+	<br /><br />
+
+	<% if session[:zombie].nil?%>
+		<%= link_to "Log In!", sessions_path %>
+	<% else %>
+		<%= link_to "Log Out!", new_session_path%>
+	<% end %>
 
 </body>
 </html>
@@ -27,8 +40,3 @@
 <br />
 
 
-<% if session[:zombie].nil?%>
-	<%= link_to "Log In!", sessions_path %>
-<% else %>
-	<%= link_to "Log Out!", new_session_path%>
-<% end %>
