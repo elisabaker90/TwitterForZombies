@@ -1,10 +1,12 @@
-<%= form_for(:session, url: sessions_path) do |f| %>
-	<div class="margin_offset">
-		Sign In! <br /> <br />
-		Zombie Name: <br />
-		<%= f.text_field :name %>
-		<button class = "btn">Log In!<% f.submit %></button>
-	</div>
-<% end %>
-<br />
-New zombie? <%= link_to "Sign up now!", new_zombie_path %>
+<div class="container">
+	<%= form_for(:session, url: sessions_path) do |f| %>
+		<div class="margin_offset">
+			Sign In! <br /> <br />
+			Zombie Name: <br />
+			<%= f.text_field :name %><br />
+			<button class = "btn">Log In!<% f.submit %></button>
+		</div>
+	<% end %>
+	<br />
+	New zombie? <%= link_to "Sign up now!", new_zombie_path %>
+</div>

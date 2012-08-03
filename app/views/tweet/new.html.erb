@@ -1,18 +1,19 @@
-
-<%= form_for @tweet, :url => {:action => :create} do |f| %>
-	<div class="margin_offset">
-	
-	<% if session[:zombie].nil? %>
-		You must be logged in to post a tweet! <%= link_to "Log In", sessions_path %>
-		<br /><br />	
+<div class="container">
+	<%= form_for @tweet, :url => {:action => :create} do |f| %>
+		<div class="margin_offset">
 		
-	<% else %>
-		Status: <br />
-		<%= f.text_area :status %> <br />
+		<% if session[:zombie].nil? %>
+			You must be logged in to post a tweet! <%= link_to "Log In", sessions_path %>
+			<br /><br />	
+			
+		<% else %>
+			Status: <br />
+			<%= f.text_area :status, :cols => 35, :rows => 5, :width => '300', :maxlength => 140 %> <br />
 
-		<%= f.submit 'Submit Tweet' %>
+			<button class = "btn">Submit Tweet!<% f.submit %></button>
+		<% end %>
+
+		</div>
 	<% end %>
-
-	</div>
-<% end %>
+</div>
 

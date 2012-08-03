@@ -1,22 +1,24 @@
-<div class="margin_offset">
-	<table border="1">
-	<tr>
-	<th>ID</th>
-	<th>Status</th>
-	<th>Zombie Name</th>
-	<th>Created At</th>
-	</tr>
-	<tr>
-	<td><%= @tweet.id %></td>
-	<td><%= @tweet.status %></td>
-	<% if @tweet.zombie !nil %>
-			<td><%= @tweet.zombie.name %></td>
-		<% else %>
-			<td><%= ' ' %></td>
-		<% end %>
-	<td><%= @tweet.created_at %></td>
-	</tr>
-	</table>
+<div class="container">
+	<div class="margin_offset">
+		<table class="table table-striped table-bordered table-condensed">
+		<tr>
+		<th>ID</th>
+		<th>Status</th>
+		<th>Zombie Name</th>
+		<th>Created At</th>
+		</tr>
+		<tr>
+		<td><%= @tweet.id %></td>
+		<td><%= @tweet.status %></td>
+		<% if @tweet.zombie !nil %>
+				<td><%= @tweet.zombie.name %></td>
+			<% else %>
+				<td><%= ' ' %></td>
+			<% end %>
+		<td><%= @tweet.created_at %></td>
+		</tr>
+		</table>
 
+	</div>
 </div>
 

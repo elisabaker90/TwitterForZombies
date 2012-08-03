@@ -12,22 +12,37 @@
   <%= stylesheet_link_tag    "zombie", :media => "all" %>
   <%= javascript_include_tag "bootstrap" %>
   <%= javascript_include_tag "bootstrap-dropdown" %>
-   
+<!--   <%= image_tag "glyphicons-halflings.png" %>
+  <%= image_tag "glyphicons-halflings-white.png" %> -->
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 	    <div class="container">
+	    	<a class="brand">
+  				Twitter for Zombies
+			</a>
+			<ul class="nav">
+				<li class="divider-vertical"></li>
+				<li><%= link_to 'All Zombies', zombie_index_path %></li>
+				<li class="divider-vertical"></li>
+				<li><%= link_to 'All Tweets', tweet_index_path %></li>
+				<li class="divider-vertical"></li>
+			</ul>
 	    	<div class="pull-right">
 				<% if session[:zombie].nil? %>
 					<button class = "btn"><%= link_to "Log In!", sessions_path %></button>
 					<%= link_to "Sign up!", new_zombie_path %>
 				<% else %>
-					<div class="btn-group span2">
-						<button class="btn"><%= link_to session[:zombie].name, session[:zombie] %></button>
+					
+					<div class="btn-group">
+						<button class="btn">
+							<!-- <i class="icon-user" ></i> -->
+							<%= link_to session[:zombie].name, session[:zombie] %>
+						</button>
 						<button class="btn dropdown-toggle" data-toggle="dropdown">
-						  <span class="caret"></span>
+						<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><%= link_to 'Home', session[:zombie] %></li>
@@ -39,16 +54,20 @@
 					</div>
 				<% end %>
 			</div>
-			<!-- <div class="btn-group"> -->
-				<button class="btn"><%= link_to 'All Zombies', zombie_index_path %></button>
-				<button class="btn"><%= link_to 'All Tweets', tweet_index_path %></button>
-			</div>
 		</div>
 	</div>
 </div>
+<div class="navbar navbar-fixed-bottom">
+	<div class="navbar-inner">
+	    <div class="container">
+	    	<form class="navbar-search pull-right">
+  				<input type="text" class="search-query" placeholder="Search">
+			</form>
+	    </div>
+	</div>	
+</div>
 
 
-	
 
 <%= yield %>
 

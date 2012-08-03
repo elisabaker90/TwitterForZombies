@@ -1,19 +1,21 @@
-
-<%= form_for @zombie, :url => {:action => :create} do |f| %>
-<div class="margin_offset">
+<div class="container">
 	
-	<% if session[:zombie].nil? %>
-		Name: <br />
-		<%= f.text_field :name %> <br />
-		Graveyard: <br />
-		<%= f.text_field :graveyard %> <br />
+	<%= form_for @zombie, :url => {:action => :create} do |f| %>
+	<div class="margin_offset">
+		
+		<% if session[:zombie].nil? %>
+			Name: <br />
+			<%= f.text_field :name %> <br />
+			Graveyard: <br />
+			<%= f.text_field :graveyard %> <br />
 
-		<%= f.submit 'Submit Zombie' %>
-	<% else %>
-		You cannot create a new Zombie if you are currently logged in.
+			<button class = "btn">Create Zombie!<% f.submit %></button>
+		<% else %>
+			You cannot create a new Zombie if you are currently logged in.
+		<% end %>
+
+	</div>
+
 	<% end %>
-
 </div>
-
-<% end %>
 
