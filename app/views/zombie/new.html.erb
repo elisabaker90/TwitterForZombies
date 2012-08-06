@@ -1,13 +1,13 @@
 <div class="container">
-	
+
 	<%= form_for @zombie, :url => {:action => :create} do |f| %>
 	<div class="margin_offset">
 		
 		<% if session[:zombie].nil? %>
 			Name: <br />
-			<%= f.text_field :name %> <br />
+			<%= f.text_field :name, :maxlength => 15 %> <br />
 			Graveyard: <br />
-			<%= f.text_field :graveyard %> <br />
+			<%= f.text_field :graveyard, :maxlength => 20 %> <br />
 
 			<button class = "btn">Create Zombie!<% f.submit %></button>
 		<% else %>

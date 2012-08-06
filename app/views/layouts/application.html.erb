@@ -47,7 +47,7 @@
 						<ul class="dropdown-menu">
 							<li><%= link_to 'Home', session[:zombie] %></li>
 						    <li><%= link_to 'New Tweet', new_tweet_path %></li>
-						    <li><%= link_to 'Edit Account' %></li>
+						    <li><%= link_to 'Edit Account', edit_zombie_path(session[:zombie]) %></li>
 						    <li class="divider"></li>
 						    <li><%= link_to 'Log Out!', new_session_path%></li>
 						</ul>

@@ -1,4 +1,5 @@
 class ZombieController < ApplicationController
+
   def show
   	@zombie = Zombie.find(params[:id])
   end
@@ -16,4 +17,24 @@ class ZombieController < ApplicationController
     session[:zombie] = zombie
   	redirect_to zombie_index_path
   end
+
+  def edit
+      # @zombie = session[:zombie]
+    @update_zombie = Zombie.find(params[:id])
+    # @update_zombie.name = params[:name]
+    # @update_zombie.graveyard = params[:graveyard]
+    
+    # @update_zombie.save
+  end
+
+  def update
+    update_zombie = session[:zombie]
+    update_zombie.name = params[:name]
+    update_zombie.graveyard = params[:graveyard]
+    
+    update_zombie.save
+    redirect_to zombie_path
+
+  end
+
 end

@@ -1,0 +1,20 @@
+<div class="container">
+	
+	<%= form_for @update_zombie, :url => {:action => :update} do |f| %>
+	<div class="margin_offset">
+		
+		<% if @update_zombie = session[:zombie]  %>
+			Change Name: <br />
+			<%= f.text_field :name %> <br />
+			Change Graveyard: <br />
+			<%= f.text_field :graveyard %> <br />
+
+			<button class = "btn">Update Zombie!<% f.submit %></button>
+		<% else %>
+			You cannot edit another person's zombie!
+		<% end %>
+
+	</div>
+
+	<% end %>
+</div>
