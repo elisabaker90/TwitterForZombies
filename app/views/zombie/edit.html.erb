@@ -3,7 +3,7 @@
 	<%= form_for @update_zombie, :url => {:action => :update} do |f| %>
 	<div class="margin_offset">
 		
-		<% if @update_zombie = session[:zombie]  %>
+		<% if @update_zombie == session[:zombie]  %>
 			Change Name: <br />
 			<%= f.text_field :name %> <br />
 			Change Graveyard: <br />

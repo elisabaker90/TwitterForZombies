@@ -28,11 +28,12 @@ class ZombieController < ApplicationController
   end
 
   def update
-    update_zombie = session[:zombie]
+    update_zombie = Zombie.find(params[:id])
     update_zombie.name = params[:name]
     update_zombie.graveyard = params[:graveyard]
     
-    update_zombie.save
+    update_zombie.save!
+
     redirect_to zombie_path
 
   end
