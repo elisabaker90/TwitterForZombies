@@ -5,11 +5,13 @@
 		
 		<% if @update_zombie == session[:zombie]  %>
 			Change Name: <br />
-			<%= f.text_field :name %> <br />
+			<%= f.text_field :name, :maxlength => 15 %> <br />
 			Change Graveyard: <br />
-			<%= f.text_field :graveyard %> <br />
+			<%= f.text_field :graveyard, :maxlength => 20 %> <br />
 
 			<button class = "btn">Update Zombie!<% f.submit %></button>
+
+	
 		<% else %>
 			You cannot edit another person's zombie!
 		<% end %>

@@ -29,13 +29,25 @@ class ZombieController < ApplicationController
 
   def update
     update_zombie = Zombie.find(params[:id])
-    update_zombie.name = params[:name]
-    update_zombie.graveyard = params[:graveyard]
+    # update_zombie.update_attributes(
+    #   :name => params[:name],
+    #   :graveyard => params[:graveyard]
+    #   )
+    update_zombie.attributes = params[:zombie]
+    update_zombie.save
+    # update_zombie.name = params[:name]
+    # update_zombie.graveyard = params[:graveyard]
     
-    update_zombie.save!
+    # update_zombie.save
 
     redirect_to zombie_path
 
+  end
+
+  def destroy
+    zombie = Zombie.find(params[:id])
+    zombie.destroy
+    redirect_to tweets_path
   end
 
 end
